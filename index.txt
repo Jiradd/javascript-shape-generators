@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+    <html lang="en" dir="ltr">
+    <head>
+    <meta charset="utf-8">
+    <title>LOOP JS</title>
+    <script type="text/javascript">
+        var i;
+        var shape = "";
+        function Isosceles(num)
+        {
+            let x,y, disp='';
+            let cntr= (num-1) / 2 + 1;
+            let strt=cntr;
+            let stop=cntr;
+            console.log(cntr);
+            for(y=1;y<=cntr;y++)
+            {
+                for(x=1;x<=num;x++)
+                {
+                    if(x>=strt && x<=stop)
+                    {
+                    disp+="* &nbsp";
+                    }
+                    else
+                    {
+                    disp+="_ &nbsp";
+                    }
+                }      
+                strt--; stop++;
+                disp+="<br/>";
+            }
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+        function Line(num)
+        {
+            let x,y, disp='';
+            console.log(num);
+            for(y=1;y <= num;y++)
+            {
+                disp+="* &nbsp";
+            }      
+                
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+        function SLine(num)
+        {
+            let x,y, disp='';
+            console.log(num);
+            for(y=1;y <= num;y++)
+            {
+                if (y % 2 == 0)
+                {
+                    disp+="_ &nbsp";
+                }
+                else
+                {
+                    disp+="* &nbsp";
+                }
+            }      
+                
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+        function Parallelogram(num){
+
+            let x,y, disp='';
+            let cntr= (num-1) / 2 + 1;
+            let strt=cntr;
+            let stop=num;
+            console.log(cntr);
+
+            for(y=1;y<=num;y++)
+            {
+                for(x=1;x<=num;x++)
+                {
+                    if(x >= strt && x <= stop)
+                    {
+                    disp+="* &nbsp";
+                    }
+                    else
+                    {
+                    disp+="_ &nbsp";
+                    }
+                }
+                if(y < (num + 1)/2)
+                {
+                    strt--; stop--;
+                }
+                else
+                {
+                    break;
+                }
+                disp+="<br/>";
+            }
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+        function Square(num) 
+        {
+            let x, y, disp = "";
+            let strt = 1;
+            let stop = 1;
+            for (y = 1; y <= num; y++) 
+            {
+                for (x = 1; x <= num; x++) 
+                {
+                    disp += "* &nbsp";
+                }
+                disp+="<br/>"
+            }
+
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+
+        function RTriangle(num){
+
+            let x,y, disp='';
+            let strt=1;
+            let stop=1;
+
+            for(y=1;y<=num;y++)
+            {
+                for(x=1;x<=num;x++)
+                {
+                    if(x >= strt && x <= stop)
+                    {
+                        disp+="* &nbsp";
+                    }
+                    else
+                    {
+                        disp+="_ &nbsp";
+                    }
+                }
+                disp+="<br/>";
+                stop++;
+            }
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+        function HGlass(num) {
+            let x, y, disp = '';
+            let cntr = (num - 1) / 2 + 1;
+
+            for (y = 0; y < num; y++) {
+                for (x = 0; x < num; x++) {
+                    if (y < cntr) 
+                    {
+                        if (x >= y && x < num - y) {
+                            disp += "* &nbsp";
+                        } else {
+                            disp += "_ &nbsp";
+                        }
+                    }
+                    else {
+                       if (x <= y && x >= num - y - 1) {
+                            disp += "* &nbsp";
+                        } else {
+                            disp += "_ &nbsp";
+                        }
+                    }
+                }
+                disp += "<br/>";
+            }
+            document.getElementById('disp').innerHTML = disp;
+        }
+
+        function BTie(num)
+        {
+            let x, y, disp = "";
+            let cntr = (num - 1) / 2;
+            for (y = 0; y < num; y++)
+            {
+                for (x = 0; x < num; x++)
+                {
+                    if ( x <= y && x < num - y || x >= y && x >= num - y - 1)
+                    {
+                        disp += "* &nbsp";
+                    }
+                    else 
+                    {
+                        disp += "_ &nbsp";
+                    }
+               }
+               disp += "<br/>";
+            }
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+        function AUp(num) {
+            let x, y, disp = '';
+            let cntr = (num - 1) / 2 + 1;
+            let strt=cntr;
+            let stop=cntr;
+
+            for (y = 1; y <= num; y++) {
+                for (x = 1; x <= num; x++) {
+                    if (y <= cntr) 
+                    {
+                        if(x>=strt && x<=stop)
+                        {
+                        disp+="* &nbsp";
+                        }
+                        else
+                        {
+                        disp+="_ &nbsp";
+                        }
+                    }
+                    else
+                    {
+                        if (x <= cntr + Math.floor(cntr / 2) && x >= cntr - Math.floor(cntr / 2))
+                        {
+                            disp+="* &nbsp";
+                        }
+                        else
+                        {
+                            disp+="_ &nbsp";
+                        }
+                        
+                    }
+                    
+                }
+                strt--; stop++;
+                disp += "<br/>";
+            }
+            document.getElementById('disp').innerHTML = disp;
+        }
+
+        function ADown(num) {
+            let x, y, disp = '';
+            let cntr = (num - 1) / 2 + 1;
+            let strt = 1;
+            let stop = num;
+
+            for (y = 1; y <= num; y++) {
+                for (x = 1; x <= num; x++) {
+                    if (y >= cntr) 
+                    {
+                        if(x>=strt && x<=stop)
+                        {
+                        disp+="* &nbsp";
+                        }
+                        else
+                        {
+                        disp+="_ &nbsp";
+                        }
+                    }
+                    else
+                    {
+                        if (x <= cntr + Math.floor(cntr / 2) && x >= cntr - Math.floor(cntr / 2))
+                        {
+                            disp+="* &nbsp";
+                        }
+                        else
+                        {
+                            disp+="_ &nbsp";
+                        }
+                        
+                    }
+                    
+                }
+                if (y >= cntr)
+                {
+                    strt++; stop--;
+                }
+                
+                disp += "<br/>";
+            }
+            document.getElementById('disp').innerHTML = disp;
+        }
+
+        function DrawX(num) {
+            let x, y, disp = '';
+
+            for (y = 1; y <= num; y++) {
+                for (x = 1; x <= num; x++) {
+                    if (x == y || x == num - y + 1) {
+                        disp += "* &nbsp";
+                    } else {
+                        disp += "_ &nbsp";
+                    }
+                }
+                disp += "<br/>";
+            }
+            document.getElementById('disp').innerHTML = disp;
+        }
+
+        function Zero(num) 
+        {
+            let x, y, disp = "";
+            for (y = 1; y <= num; y++) 
+            {
+                if ( y != 1  && y != num)
+                {
+                    for (x = 1; x <= num; x++) 
+                    {
+                        if (x == 1 || x == num)
+                        {
+                            disp += "* &nbsp";
+                        }
+                        else
+                        {
+                            disp += "_ &nbsp";
+                        }
+                    }
+                }
+                else
+                {
+                    for (x = 1; x <= num; x++)
+                    {
+                        disp += "* &nbsp"
+                    }
+                }
+                
+                disp+="<br/>"
+            }
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+
+        function Triangle(num){
+
+            let x,y, disp='';
+            let stop=num;
+
+            for(y=1;y<=num;y++)
+            {
+                for(x=1;x<=num;x++)
+                {
+                    if(x <= stop)
+                    {
+                        disp+="* &nbsp";
+                    }
+                    else
+                    {
+                        disp+="_ &nbsp";
+                    }
+                }
+                disp+="<br/>";
+                stop--;
+            }
+            document.getElementById('disp').innerHTML=disp;
+        }
+
+
+        function Diamond(num){
+
+            let x,y, disp='';
+
+            let cntr= (num-1) / 2 + 1;
+
+            let strt=cntr;
+
+            let stop=cntr;
+
+            console.log(cntr);
+
+            for(y=1;y<=num;y++){
+
+            for(x=1;x<=num;x++){
+
+            if(x>=strt && x<=stop){
+
+                disp+="* &nbsp";
+
+            }else{
+
+                disp+="_ &nbsp";
+
+            }
+
+            }
+
+            if(y<cntr){
+
+            strt--; stop++;
+
+            }else{
+
+            strt++; stop--;
+
+            }
+
+
+
+            disp+="<br/>";
+
+            }
+
+            document.getElementById('disp').innerHTML=disp;
+
+        }
+
+        function RIsosceles(num){
+ 
+            let x,y, disp='';
+  
+            let cntr= (num-1) / 2 + 1;
+  
+            let strt=1;
+  
+            let stop=num;
+  
+            console.log(cntr);
+  
+            for(y=1;y<=cntr;y++){
+  
+            for(x=1;x<=num;x++){
+  
+            if(x>=strt && x<=stop){
+  
+            disp+="* &nbsp";
+  
+            }else{
+  
+            disp+="_ &nbsp";
+  
+            }
+  
+            }
+  
+            strt++; stop--;
+  
+            disp+="<br/>";
+  
+             }
+
+             document.getElementById('disp').innerHTML=disp;
+        }
+
+
+        function genBtn(shape) 
+        {
+            let btn="";
+            for(i=5;i<=23;i+=2)
+            {
+                btn+='<button type="button" onclick="'+ shape + '(' + i + ')">'+i+'</button>';
+            }
+            document.getElementById('btns').innerHTML=btn;
+        }
+
+        
+    </script>
+    </head>
+    <body onload="genBtn()">
+    <center>
+        <div id="btns"></div><br/>
+        <div id="sbtns">
+            <button onclick="genBtn('Line')">Line</button>
+            <button onclick="genBtn('SLine')">Striped Line</button>
+            <button onclick="genBtn('Parallelogram')">Parallelogram</button>
+            <button onclick="genBtn('Isosceles')">Isosceles</button>
+            <button onclick="genBtn('RIsosceles')">Reverse Isosceles Triangle</button>
+            <button onclick="genBtn('Square')">Square</button>
+            <button onclick="genBtn('Triangle')">Triangle</button>
+            <button onclick="genBtn('RTriangle')">Reverse Triangle</button>
+            <button onclick="genBtn('HGlass')">Hour Glass</button>
+            <button onclick="genBtn('Zero')">Zero</button>
+            <button onclick="genBtn('AUp')">Arrow Up</button>
+            <button onclick="genBtn('ADown')">Arrow Down</button>
+            <button onclick="genBtn('DrawX')">X</button>
+            <button onclick="genBtn('BTie')">Bow Tie</button>
+            <button onclick="genBtn('Diamond')">Diamond</button>
+        </div><br/>
+        <div id="disp"></div>
+    </center>
+ </body>
+</html>
